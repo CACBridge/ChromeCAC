@@ -39,7 +39,7 @@ Coming soon
 
 #### RequireJS
 
-```
+```js
 require(['cacbridge'], function (CAC) {
   console.log(CAC)
 })
