@@ -40,7 +40,9 @@ Coming soon
 #### RequireJS
 
 ```
-Coming soon
+require(['cacbridge'], function (CAC) {
+  console.log(CAC)
+})
 ```
 
 ### Client-side Setup
