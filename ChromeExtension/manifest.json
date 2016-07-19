@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "ChromeCAC",
+  "description": "Digitally sign documents with a smart card using Google Chrome",
+  "version": "1.0",
+
+  "permissions": [
+    "nativeMessaging",
+	  "activeTab",
+	  "tabs",
+	  "<all_urls>"
+  ],
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["chromecac-extension-content.js"],
+    "run_at": "document_end"
+  }],
+  "background": {
+    "scripts": ["chromecac-extension-background.js"]
+  }
+}
