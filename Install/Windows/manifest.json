@@ -1,0 +1,9 @@
+{
+  "name": "cacbridge.chromecac",
+  "description": "ChromeCAC Native Messaging",
+  "path": "ChromeCAC.exe",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://clhfdbehlecpoglfcejofafpncgmdkck/"
+  ]
+}
