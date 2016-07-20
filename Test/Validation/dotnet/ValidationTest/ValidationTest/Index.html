@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://rawgit.com/CACBridge/ChromeCAC/master/cacbridge.js"></script>
+</head>
+<body>
+    <input id="txtSign" type="text" placeholder="Type String to sign.">
+        <button onclick="testSign()">sign</button>
+        <script>
+            function testSign() {
+                var text = document.getElementById("txtSign").value
+                
+                CAC.sign(text, function (signatureInfo) {
+
+                    // Signed successfully
+                    // Passes signatureInfo, see below
+                    console.log("Debug")
+                    console.log(signatureInfo)
+                    console.log("Signature: " + signatureInfo.signature)
+
+                }, function () {
+
+                    // Failed to sign
+                    console.log("Failed to sign data!")
+
+                })
+
+            }
+
+        </script>
+
+</body>
+</html>
