@@ -39,7 +39,7 @@
         } else if (event.data.type == "ChromeCAC_signed") {
             var cb = callbacks[event.data.data._id];
             if (event.data.success) {
-                cb.success(event.signature);
+                cb.success(event.data.signature);
             }
             else {
                 cb.fail({
