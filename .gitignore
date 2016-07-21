@@ -227,3 +227,4 @@ Test/Validation/dotnet/ValidationTest/obj/
 NativeApps/ChromeCAC.NET/packages/
 NativeApps/ChromeCAC.NET/bin/
 NativeApps/ChromeCAC.NET/obj/
+Test/Validation/dotnet/ValidationTest/.vs/config/applicationhost.config

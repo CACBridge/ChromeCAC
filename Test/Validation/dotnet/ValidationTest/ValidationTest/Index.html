@@ -7,18 +7,18 @@
 </head>
 <body>
     <form method="post" action="Verify.aspx">
-        <input id="txtSign" name="txtSign" type="text" placeholder="Type String to sign." />
+        <input id="txtSign" name="txtSign" type="text" placeholder="Type String to sign." required/>
         <div id="beforeSig">
             <button onclick="testSign()">sign</button>
         </div>
         <div id="afterSig" style="display:none">
-            <textarea id="txtSig" name="txtSig"></textarea>
+            <textarea id="txtSig" name="txtSig" required></textarea>
             <input type="submit" />
         </div>
     </form>
     <script>
         function testSign() {
-            var text = document.getElementById("txtSign").value
+            var text = document.getElementById("txtSign").value;
                 
             CAC.sign(text, function (signatureInfo) {
 
