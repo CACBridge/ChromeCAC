@@ -6,30 +6,41 @@
     <script src="https://rawgit.com/CACBridge/ChromeCAC/master/cacbridge.js"></script>
 </head>
 <body>
-    <input id="txtSign" type="text" placeholder="Type String to sign.">
-        <button onclick="testSign()">sign</button>
-        <script>
-            function testSign() {
-                var text = document.getElementById("txtSign").value
+    <form method="post" action="Verify.aspx">
+        <input id="txtSign" name="txtSign" type="text" placeholder="Type String to sign." />
+        <div id="beforeSig">
+            <button onclick="testSign()">sign</button>
+        </div>
+        <div id="afterSig" style="display:none">
+            <textarea id="txtSig" name="txtSig"></textarea>
+            <input type="submit" />
+        </div>
+    </form>
+    <script>
+        function testSign() {
+            var text = document.getElementById("txtSign").value
                 
-                CAC.sign(text, function (signatureInfo) {
+            CAC.sign(text, function (signatureInfo) {
 
-                    // Signed successfully
-                    // Passes signatureInfo, see below
-                    console.log("Debug")
-                    console.log(signatureInfo)
-                    console.log("Signature: " + signatureInfo.signature)
+                // Signed successfully
+                // Passes signatureInfo, see below
+                console.log("Debug");
+                console.log(signatureInfo);
+                console.log("Signature: " + signatureInfo.signature);
 
-                }, function () {
+                document.getElementById("beforeSig").style.display = "none";
+                document.getElementById("afterSig").style.display = "block";
 
-                    // Failed to sign
-                    console.log("Failed to sign data!")
+                document.getElementById("txtSig").value = signatureInfo.signature;
 
-                })
+            }, function () {
 
-            }
+                // Failed to sign
+                console.log("Failed to sign data!");
 
-        </script>
+            })
 
+        }
+    </script>
 </body>
 </html>

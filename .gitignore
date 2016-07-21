@@ -214,3 +214,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#Misc
+*.dll
+Test/Validation/dotnet/ValidationTest/.vs/config/applicationhost.config
+*.nupkg
+Test/Validation/dotnet/ValidationTest/packages/
