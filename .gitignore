@@ -219,4 +219,11 @@ pip-log.txt
 *.dll
 Test/Validation/dotnet/ValidationTest/.vs/config/applicationhost.config
 *.nupkg
+
 Test/Validation/dotnet/ValidationTest/packages/
+Test/Validation/dotnet/ValidationTest/bin/
+Test/Validation/dotnet/ValidationTest/obj/
+
+NativeApps/ChromeCAC.NET/packages/
+NativeApps/ChromeCAC.NET/bin/
+NativeApps/ChromeCAC.NET/obj/
