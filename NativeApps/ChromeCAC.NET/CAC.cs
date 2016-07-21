@@ -45,7 +45,7 @@ namespace ChromeCAC
             */
 
             var content = new ContentInfo(data);
-            var cms = new SignedCms(content, false); // TODO detached config
+            var cms = new SignedCms(content, true); // TODO detached config
             var signer = new CmsSigner();
             signer.IncludeOption = X509IncludeOption.EndCertOnly;
 
@@ -53,7 +53,7 @@ namespace ChromeCAC
             var sig = cms.Encode();
 
             var cert = cms.Certificates[0];
-
+            CheckSig(sig, data);
             return new SignatureResponse
             {
                 publicKey = Convert.ToBase64String(cert.PublicKey.EncodedKeyValue.RawData),
@@ -61,5 +61,21 @@ namespace ChromeCAC
                 fullSig = null // TODO
             };
         }
+
+        public static void CheckSig(byte[] sig, byte[] data)
+        {
+            ContentInfo contentInfo = new ContentInfo(data);
+
+            SignedCms signedCms = new SignedCms(contentInfo, true);
+
+            signedCms.Decode(sig);
+
+            // This checks if the signature is valid, but doensn't actually verify the cert (TODO)
+            signedCms.CheckSignature(true);
+            
+            signedCms.CheckSignature(false);
+                 
+        }
+
     }
 }
