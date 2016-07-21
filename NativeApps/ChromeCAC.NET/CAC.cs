@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ChromeCAC
 {
-    class CAC
+    public class CAC
     {
         //public static X509Certificate2 PickCertificate()
         //{
@@ -51,6 +51,15 @@ namespace ChromeCAC
 
             cms.ComputeSignature(signer, false);
             var sig = cms.Encode();
+
+            //ensure my signature is correct before continuing.
+            cms.CheckSignature(true);
+            
+            var newCMS = new SignedCms(content, false);
+            newCMS.Decode(sig);
+            newCMS.CheckSignature(true);
+
+            
 
             var cert = cms.Certificates[0];
 
