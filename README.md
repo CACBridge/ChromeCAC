@@ -98,3 +98,13 @@ fullSig   | string | The full signature, containing the public key and signature
 ## Verifying Signatures
 
 Examples of signature verification are coming soon to CACBridge.
+
+----
+
+## Dedication
+
+CACBridge is dedicated to Ramone Beharrie
+
+An individual that our team was very close to and enjoyed our experience together.
+
+> I don't play games, I make them
