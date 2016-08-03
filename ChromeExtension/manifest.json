@@ -14,7 +14,7 @@
   "content_scripts": [{
     "matches": ["*://*/*"],
     "js": ["chromecac-extension-content.js"],
-    "run_at": "document_idle"
+    "run_at": "document_end"
   }],
   "background": {
     "scripts": ["chromecac-extension-background.js"]
