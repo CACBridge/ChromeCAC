@@ -13,14 +13,21 @@
     }
 }(this, function () {
 
-    var callbacks = []
+    var callbacks = [];
+    var isActive = false;
 
     function sign(str, success, fail) {
+        if (!isActive) {
+            fail();
+            return;
+        }
+
         window.postMessage({
             type: "ChromeCAC_sign",
             payload: str,
             _id: callbacks.length
         }, "*"); // TODO dont use "*"
+
         callbacks.push({
             success: success,
             fail: fail
@@ -35,7 +42,8 @@
             return;
 
         if (event.data.type == "ChromeCAC_setactive") {
-            console.log("ChromeCAC is active");
+            isActive = true;
+            console.log("ChromeCAC is active.")
         } else if (event.data.type == "ChromeCAC_signed") {
             var cb = callbacks[event.data.data._id];
             if (event.data.success) {
