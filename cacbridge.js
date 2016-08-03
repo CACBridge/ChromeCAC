@@ -57,9 +57,19 @@
         }
     })
 
-    window.postMessage({
-        type: "ChromeCAC_init"
-    }, "*"); // TODO dont use "*", target the specific extension
+    function init() {
+        window.postMessage({
+            type: "ChromeCAC_init"
+        }, "*");
+    }
+
+    if (document.readyState != 'loading') {
+        init();
+    }
+    else {
+        window.addEventListener("load", init);
+    }
+
 
     return {
         sign: sign
